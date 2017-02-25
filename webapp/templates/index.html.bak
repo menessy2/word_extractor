@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Octopus Words Counter Assignment</title>
+<link rel="stylesheet" type="text/css" href="../static/view.css" media="all">
+<script type="text/javascript" src="../static/view.js"></script>
+
+<style>
+body {
+    background-color:  	#FAEBD7;
+}
+</style>
+
+</head>
+<body id="main_body" >
+	
+	<img id="top" src="../static/top.png" alt="">
+	<div id="form_container">
+	
+		<h1><a>Octopus Assignment</a></h1>
+		<form id="form_15529" class="appnitro"  method="post" action="/">
+					<div class="form_description">
+			<h2>Words Counter</h2>
+			<p>This form retrieves the words counts inside the html page of a given url</p>
+		</div>						
+			<ul >
+			
+					<li id="li_1" >
+		<label class="description" for="element_1">Enter here the URL  </label>
+		<div>
+			<input id="element_1" name="url" class="element text large" type="text" maxlength="255" value=""/>
+		</div>
+						{% if error_msg %}
+						<span style="color:red">{{ error_msg }}</span>
+						{% end %}
+		</li>
+			
+					<li class="buttons">
+			    
+				<input id="saveForm" class="button_text" type="submit" value="Submit" />
+		</li>
+			</ul>
+		</form>
+	</div>
+	<img id="bottom" src="../static/bottom.png" alt="">
+	</body>
+</html>

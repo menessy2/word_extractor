@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Octopus Words Counter Assignment</title>
+<link rel="stylesheet" type="text/css" href="../static/view.css" media="all">
+<script type="text/javascript" src="../static/view.js"></script>
+
+<style>
+body {
+    background-color:  	#FAEBD7;
+}
+</style>
+
+
+<style>
+body {
+  position: relative;
+  font-family: "Helvetica Neue", sans-serif;
+  width: 960px;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 20px;
+}
+#presets a { border-left: solid #666 1px; padding: 0 10px; }
+#presets a.first { border-left: none; }
+#keyword { width: 300px; }
+#fetcher { width: 500px; }
+#keyword, #go { font-size: 1.5em; }
+#text { width: 100%; height: 100px; }
+p.copy { font-size: small; }
+#form { font-size: small; position: relative; }
+hr { border: none; border-bottom: solid #ccc 1px; }
+a.active { text-decoration: none; color: #000; font-weight: bold; cursor: text; }
+#angles line, #angles path, #angles circle { stroke: #666; }
+#angles text { fill: #333; }
+#angles path.drag { fill: #666; cursor: move; }
+#angles { text-align: center; margin: 0 auto; width: 350px; }
+#angles input, #max { width: 42px; }
+</style>
+
+<script src="../static/ca-pub-2911491153890039.js"></script><script type="text/javascript" async="" src="../static/ga.js"></script></head>
+
+<body>
+
+
+<img id="top" src="../static/top.png" alt="">
+	<div id="form_container">
+
+		<h1><a>Octopus Assignment</a></h1>
+		<form id="form_15529" class="appnitro"  method="post" action="/">
+					<div class="form_description">
+			<h2>Words Counter</h2>
+			<p>This form retrieves the words counts inside the html page of a given url</p>
+		</div>
+			<ul >
+
+					<li id="li_1" >
+		<label class="description" for="element_1">Enter here the URL  </label>
+		<div>
+			<input id="element_1" name="url" class="element text large" type="text" maxlength="255" value=""/>
+		</div>
+						{% if error_msg %}
+						<span style="color:red">{{ error_msg }}</span>
+						{% end %}
+		</li>
+
+					<li class="buttons">
+
+				<input id="saveForm" class="button_text" type="submit" value="Submit" />
+		</li>
+			</ul>
+		</form>
+	</div>
+	<img id="bottom" src="../static/bottom.png" alt="">
+
+<div id="vis"><svg ><g transform="translate(480,300)scale(1.0067113637924194,1.0067113637924194)"></g></svg></div>
+
+
+
+<div style="text-align: center">
+  <div id="presets"></div>
+  <div id="custom-area">
+    <p>
+    </p><p><textarea id="text" style="display:none;">
+
+      {% if result %}
+
+      {{ result }}
+
+      {% end %}
+    </textarea>
+  </p></div>
+</div>
+
+<hr>
+
+<div style="float: right; text-align: right">
+  <p><label for="max"></label> <input type="hidden" value="250" min="1" id="max" type="number">
+  </p>
+  <p><label for="per-line"><input type="hidden" id="per-line" type="checkbox"></label>
+  </p>
+  <p><label>Download:</label>
+    <button id="download-svg">SVG</button><!-- |
+    <a id="download-png" href="#">PNG</a>-->
+</p></div>
+
+<div style="float: left">
+  <p>
+    <label for="archimedean"><input name="spiral" style="display:none;" id="archimedean" value="archimedean"
+                                    checked="checked" type="radio"></label>
+    <label for="rectangular"><input name="spiral" style="display:none;" id="rectangular" value="rectangular"
+                                    type="radio"></label>
+  </p><p><label style="display:none;" for="scale">Scale:</label>
+    <label style="display:none;" for="scale-log"><input style="display:none;" name="scale" id="scale-log" value="log" checked="checked"
+                                  type="radio"></label>
+    <label style="display:none;" for="scale-sqrt"><input style="display:none;" name="scale" id="scale-sqrt"
+                                                         value="sqrt" type="radio">
+    </label>
+    <label style="display:none;" for="scale-linear"><input style="display:none;" name="scale" id="scale-linear"
+                                                           value="linear"
+                                     type="radio"></label>
+  </p><p><label for="font"></label> <input style="display:none;" id="font" value="Impact" type="text">
+</p></div>
+
+<div id="angles">
+  <p><input style="display:none;" id="angle-count" style="display:none;" value="5" min="1" type="number"> <label
+          for="angle-count"></label>
+    <label style="display:none;" for="angle-from"></label> <input style="display:none;" id="angle-from" value="-60"
+                                                                  min="-90" max="90"
+                                                type="number">
+    <label style="display:none;" for="angle-to"></label> <input style="display:none;" id="angle-to" value="60"
+                                                                min="-90" max="90"
+                                            type="number">
+</p><svg style="display:none;" width="151" height="70.5"><g transform="translate(75.5,60.5)"><path
+        style="fill: none;" d="M -40.5 0 A 40.5 40.5 0 0 1 40.5 0"></path><line x1="-47.5" x2="47.5"></line><line y2="-47.5"></line>
+    <text style="display:none;" dy=".3em" text-anchor="end" transform="rotate(0)translate(-50.5)rotate(0)translate(2)"></text>
+    <text style="display:none;" text-anchor="middle" transform="rotate(90)translate(-50.5)rotate(-90)translate(2)">
+    </text>
+    <text style="display:none;" dy=".3em" text-anchor="start" transform="rotate(180)translate(-50.5)rotate(-180)translate(2)">90°</text>
+    <path style="display:none;" class="angle" style="fill: rgb(255, 204, 0);"
+          d="M-35.07402885326976,-20.250000000000014A40.5,40.5 0 0,1 35.074028853269766,-20.25L0,0Z"></path>
+    <line style="display:none;" class="angle" transform="rotate(30)" x2="-45.5"></line><line style="display:none;"
+                                                                                             class="angle"
+                                                                                             transform="rotate(60)" x2="-40.5"></line><line class="angle" transform="rotate(90)" x2="-40.5"></line>
+    <line style="display:none;" class="angle" transform="rotate(120)" x2="-40.5"></line><line style="display:none;"
+                                                                                              class="angle"
+                                                                                              transform="rotate(150)" x2="-45.5"></line><path class="drag" d="M-9.5,0L-3,3.5L-3,-3.5Z" transform="rotate(30)translate(-40.5)"></path><path class="drag" d="M-9.5,0L-3,3.5L-3,-3.5Z" transform="rotate(150)translate(-40.5)"></path></g></svg></div>
+
+
+
+<script src="../static/d3.js"></script>
+<script src="../static/cloud.js"></script>
+
+</body></html>
