@@ -5,3 +5,4 @@ validators
 bs4
 jinja2
 pycrypto
+requests
